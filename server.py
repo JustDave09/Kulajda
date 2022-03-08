@@ -10,5 +10,5 @@ serversocket.bind((host, port))
 while True:
     serversocket.listen()
     clientsocket, addr = serversocket.accept()
-    clientsocket.sendall(b'Ahoj kamo')
+    clientsocket.sendall(b"Nefunguje to")
     clientsocket.close()

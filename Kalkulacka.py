@@ -4,11 +4,12 @@ from functools import partial
 
 
 window = tk.Tk()
-window.geometry("1000x200")
+window.geometry("750x720")
 window.title("Kalkulačka")
 
 entry1 = tk.Entry(
-    width=100,
+    width=32,
+    font=("Arial", 40),
     background="white",
     foreground="black"
 )
@@ -46,7 +47,8 @@ while a in range(0,9):
             text="+",
             bg="white",
             fg="black",
-            width=25,
+            width=20,
+            height=10,
             command=calca,
         )
         buttona.grid(row=1, column=4)
@@ -56,9 +58,10 @@ while a in range(0,9):
 
     buttona = tk.Button(
         text=a,
-        bg="white",
+        background="black",
         fg="black",
-        width=25,
+        width=20,
+        height=10,
         command=calca,
     )
     buttona.grid(row=r, column=c)
@@ -72,7 +75,8 @@ while a in range(0,9):
             text="-",
             bg="white",
             fg="black",
-            width=25,
+            width=20,
+            height=10,
             command=calca,
         )
         buttona.grid(row=r, column=c+1)
@@ -83,7 +87,8 @@ while a in range(0,9):
             text="*",
             bg="white",
             fg="black",
-            width=25,
+            width=20,
+            height=10,
             command=calca,
         )
         buttona.grid(row=r, column=c+1)
@@ -97,7 +102,8 @@ button0 = tk.Button(
     text="0",
     bg="white",
     fg="black",
-    width=25,
+    width=20,
+    height=10,
     command=calca,
 )
 button0.grid(row=4, column=1)
@@ -106,7 +112,8 @@ buttonReady = tk.Button(
     text="Vypocitat",
     bg="white",
     fg="black",
-    width=25,
+    width=20,
+    height=10,
     command=answer,
 )
 buttonReady.grid(row=4, column=2)
@@ -115,7 +122,8 @@ buttonDelete = tk.Button(
     text="Vymazat",
     bg="white",
     fg="black",
-    width=25,
+    width=20,
+    height=10,
     command=reset,
 )
 buttonDelete.grid(row=4, column=3)
@@ -125,14 +133,14 @@ buttonDivide = tk.Button(
     text="/",
     bg="white",
     fg="black",
-    width=25,
+    width=20,
+    height=10,
     command=calca,
 )
 buttonDivide.grid(row=4, column=4)
 
 
 window.mainloop()
-
 
 
 

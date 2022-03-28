@@ -1,36 +1,69 @@
 import tkinter as tk
 import socket
 import threading
+import errno
 
-message = "Zatím nikdo nic nepíše :/"
+HEADER_LENGTH = 10
 
-def get_message():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+IP = "127.0.0.1"
+PORT = 1234
 
-    host = socket.gethostname()
-    port = 2205
+#nastavit jméno => Grafické rozhrani pozdeji
+my_username = input("Username: ")
 
-    s.connect((host, port))
-    msg = s.recv(1024)
-    message = (msg.decode('ascii'))
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#???????????? no.1
 
-    label1.configure(text=message)
+client_socket.connect((IP, PORT))
+# Připojit na daný soket
 
-    s.close()
+client_socket.setblocking(False)
+#???????????? no.1.5
 
-def send_message():
-    user_input = entry1.get()
+username = my_username.encode('utf-8')
+username_header = f"{len(username):<{HEADER_LENGTH}}".encode('utf-8')
+client_socket.send(username_header + username)
+# Získej a odešli data na server
 
-    serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+while True:
+    #--------------------------------------------- Message input
+    message = input(f'{my_username} > ')
 
-    host = socket.gethostname()
-    port = 2205
+    if message:
+        message = message.encode('utf-8')
+        message_header = f"{len(message):<{HEADER_LENGTH}}".encode('utf-8')
+        client_socket.send(message_header + message)
 
-    serversocket.connect((host, port))
+    try:
+        #--------------------------------------------- Vypiš zprávy
+        while True:
+            username_header = client_socket.recv(HEADER_LENGTH)
+            if not len(username_header):
+                print('Connection closed by the server')
+                # --------------------------------------------- Předělat na logging
+                sys.exit()
 
-    clientsocket, addr = serversocket.accept()
-    clientsocket.sendall(b"Pls")
-    clientsocket.close()
+            username_length = int(username_header.decode('utf-8').strip())
+            username = client_socket.recv(username_length).decode('utf-8')
+
+            message_header = client_socket.recv(HEADER_LENGTH)
+            message_length = int(message_header.decode('utf-8').strip())
+            message = client_socket.recv(message_length).decode('utf-8')
+
+            #--------------------------------------------- Vypiš zprávy
+            print(f'{username} > {message}')
+
+    except IOError as e:
+        # --------------------------------------------- Předělat na logging -------------------------------------------
+        if e.errno != errno.EAGAIN and e.errno != errno.EWOULDBLOCK:
+            print('Reading error: {}'.format(str(e)))
+            sys.exit()
+        continue
+
+    except Exception as e:
+        print('Reading error: '.format(str(e)))
+        sys.exit()
+
 
 #Tady začíná Grafické rozhraní chatu
 

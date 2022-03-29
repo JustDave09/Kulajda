@@ -27,7 +27,7 @@ username_header = f"{len(username):<{HEADER_LENGTH}}".encode('utf-8')
 client_socket.send(username_header + username)
 # Získej a odešli data na server
 
-def send_message():
+def send_message(event=None):
     message = f'{your_chat_message.get()}'
     entry1.delete(0, tk.END)
 
@@ -92,7 +92,7 @@ entry1 = tk.Entry(
     font=("Arial", 34),
     background="black",
     foreground="white",
-    highlightbackground="black"
+    highlightbackground="black",
 )
 entry1.grid(row=1, column=0, columnspan=4)
 
@@ -108,6 +108,8 @@ button1 = tk.Button(
     command=send_message,
 )
 button1.grid(row=1, column=4)
+
+window.bind('<Return>', send_message)
 
 x = threading.Thread(target=get_message)
 x.start()

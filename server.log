@@ -40,3 +40,18 @@
 [2022-03-29 15:41:37,078] INFO Thread-1 root: Received message from Dave: wda
 [2022-03-29 15:41:37,423] INFO Thread-1 root: Received message from Dave: wdaw
 [2022-03-29 15:41:38,113] INFO Thread-1 root: Received message from Dave: d
+[2022-03-29 15:55:25,325] INFO Thread-1 root: Closed connection from: Dave
+[2022-03-29 15:55:29,364] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65390, username: D
+[2022-03-29 15:55:35,591] INFO Thread-1 root: Received message from D: DD
+[2022-03-29 15:57:10,566] INFO Thread-1 root: Closed connection from: D
+[2022-03-29 15:57:12,472] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65408, username: D
+[2022-03-29 15:57:16,676] INFO Thread-1 root: Received message from D: cc
+[2022-03-29 15:58:01,087] INFO Thread-1 root: Closed connection from: D
+[2022-03-29 15:58:03,046] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65410, username: D
+[2022-03-29 15:59:39,707] INFO Thread-1 root: Closed connection from: D
+[2022-03-29 15:59:42,209] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65412, username: D
+[2022-03-29 15:59:45,423] INFO Thread-1 root: Received message from D: DD
+[2022-03-29 15:59:49,886] INFO Thread-1 root: Received message from D: DDD
+[2022-03-29 16:00:18,725] INFO Thread-1 root: Received message from D: DWDW
+[2022-03-29 16:00:26,740] INFO Thread-1 root: Received message from D: Ahoj kamo
+[2022-03-29 16:00:37,546] INFO Thread-1 root: Closed connection from: D

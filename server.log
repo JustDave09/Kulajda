@@ -1,57 +1,8 @@
-
-[2022-03-29 15:40:00,128] INFO MainThread root -----------------------------------------------------------------
-[2022-03-29 15:40:00,128] INFO MainThread root Starting server "The_Best_chatting_service_2022"
-[2022-03-29 15:40:00,128] INFO MainThread root -----------------------------------------------------------------
-[2022-03-29 15:40:00,128] INFO MainThread root Creating server at 127.0.0.1 on port1234
-[2022-03-29 15:40:00,128] INFO MainThread root Succesfully bound to socket
-[2022-03-29 15:40:00,128] INFO MainThread root Listening for connections on 127.0.0.1:1234
-[2022-03-29 15:40:58,268] INFO MainThread root: -----------------------------------------------------------------
-[2022-03-29 15:40:58,268] INFO MainThread root: Starting server "The_Best_chatting_service_2022.jar"
-[2022-03-29 15:40:58,268] INFO MainThread root: -----------------------------------------------------------------
-[2022-03-29 15:40:58,269] INFO MainThread root: Creating server at 127.0.0.1 on port1234
-[2022-03-29 15:40:58,269] INFO MainThread root: Succesfully bound to socket
-[2022-03-29 15:40:58,269] INFO MainThread root: Listening for connections on 127.0.0.1:1234
-[2022-03-29 15:41:06,418] INFO Thread-1 root: Accepted new connection from 127.0.0.1:64738, username: Dave
-[2022-03-29 15:41:13,560] INFO Thread-1 root: Received message from Dave: Ahoj dabe
-[2022-03-29 15:41:25,712] INFO Thread-1 root: Received message from Dave: dDD
-[2022-03-29 15:41:26,322] INFO Thread-1 root: Received message from Dave: d
-[2022-03-29 15:41:26,857] INFO Thread-1 root: Received message from Dave: d
-[2022-03-29 15:41:27,296] INFO Thread-1 root: Received message from Dave: d
-[2022-03-29 15:41:27,916] INFO Thread-1 root: Received message from Dave: d
-[2022-03-29 15:41:29,342] INFO Thread-1 root: Received message from Dave: XD
-[2022-03-29 15:41:30,270] INFO Thread-1 root: Received message from Dave: dw
-[2022-03-29 15:41:30,574] INFO Thread-1 root: Received message from Dave: a
-[2022-03-29 15:41:30,914] INFO Thread-1 root: Received message from Dave: wd
-[2022-03-29 15:41:31,252] INFO Thread-1 root: Received message from Dave: awda
-[2022-03-29 15:41:31,602] INFO Thread-1 root: Received message from Dave: wda
-[2022-03-29 15:41:31,998] INFO Thread-1 root: Received message from Dave: wd
-[2022-03-29 15:41:32,450] INFO Thread-1 root: Received message from Dave: awdaw
-[2022-03-29 15:41:32,823] INFO Thread-1 root: Received message from Dave: d
-[2022-03-29 15:41:33,310] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:33,854] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:34,201] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:34,576] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:34,903] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:35,220] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:35,626] INFO Thread-1 root: Received message from Dave: awd
-[2022-03-29 15:41:36,033] INFO Thread-1 root: Received message from Dave: awda
-[2022-03-29 15:41:36,374] INFO Thread-1 root: Received message from Dave: wda
-[2022-03-29 15:41:36,733] INFO Thread-1 root: Received message from Dave: wda
-[2022-03-29 15:41:37,078] INFO Thread-1 root: Received message from Dave: wda
-[2022-03-29 15:41:37,423] INFO Thread-1 root: Received message from Dave: wdaw
-[2022-03-29 15:41:38,113] INFO Thread-1 root: Received message from Dave: d
-[2022-03-29 15:55:25,325] INFO Thread-1 root: Closed connection from: Dave
-[2022-03-29 15:55:29,364] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65390, username: D
-[2022-03-29 15:55:35,591] INFO Thread-1 root: Received message from D: DD
-[2022-03-29 15:57:10,566] INFO Thread-1 root: Closed connection from: D
-[2022-03-29 15:57:12,472] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65408, username: D
-[2022-03-29 15:57:16,676] INFO Thread-1 root: Received message from D: cc
-[2022-03-29 15:58:01,087] INFO Thread-1 root: Closed connection from: D
-[2022-03-29 15:58:03,046] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65410, username: D
-[2022-03-29 15:59:39,707] INFO Thread-1 root: Closed connection from: D
-[2022-03-29 15:59:42,209] INFO Thread-1 root: Accepted new connection from 127.0.0.1:65412, username: D
-[2022-03-29 15:59:45,423] INFO Thread-1 root: Received message from D: DD
-[2022-03-29 15:59:49,886] INFO Thread-1 root: Received message from D: DDD
-[2022-03-29 16:00:18,725] INFO Thread-1 root: Received message from D: DWDW
-[2022-03-29 16:00:26,740] INFO Thread-1 root: Received message from D: Ahoj kamo
-[2022-03-29 16:00:37,546] INFO Thread-1 root: Closed connection from: D
+[2022-04-03 20:39:41,363] INFO MainThread root: -----------------------------------------------------------------
+[2022-04-03 20:39:41,363] INFO MainThread root: Starting server "The_Best_chatting_service_2022.py"
+[2022-04-03 20:39:41,363] INFO MainThread root: -----------------------------------------------------------------
+[2022-04-03 20:39:41,363] INFO MainThread root: Creating server at 127.0.0.1 on port1234
+[2022-04-03 20:39:41,364] INFO MainThread root: Succesfully bound to socket
+[2022-04-03 20:39:41,364] INFO MainThread root: Listening for connections on 127.0.0.1:1234
+[2022-04-03 20:39:46,421] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 65226)username: Dave
+[2022-04-03 20:39:51,781] INFO Thread-1 root: Received message fromDave:AHOOOOOOOOOJ

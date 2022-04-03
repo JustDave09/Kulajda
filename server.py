@@ -3,13 +3,15 @@ import select
 import threading
 import logging
 
-logging.basicConfig(filename='server.log', level=logging.DEBUG, filemode='a+', format='[%(asctime)s] %(levelname)s %(threadName)s %(name)s: %(message)s')
-logging.info('-----------------------------------------------------------------')
-logging.info('Starting server "The_Best_chatting_service_2022.jar"')
-logging.info('-----------------------------------------------------------------')
+logging.basicConfig(filename='server.log',
+                    level=logging.DEBUG,
+                    filemode='w',
+                    format='[%(asctime)s] %(levelname)s %(threadName)s %(name)s: %(message)s'
+)
 
-
-HEADER_LENGTH = 1024
+logging.info('-----------------------------------------------------------------')
+logging.info('Starting server "The_Best_chatting_service_2022.py"')
+logging.info('-----------------------------------------------------------------')
 
 IP = "127.0.0.1"
 PORT = 1234
@@ -20,19 +22,16 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # socket.AF_INET - rodina sítě
 # socket.SOCK_STREAM - TCP
 
-server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-#???????????? no.1
-
 server_socket.bind((IP, PORT))
 # nabindovat server na socket který bude používat
 # 0.0.0.0 oddposlouchává veškeré použitelné síte! :o
+
 logging.info('Succesfully bound to socket')
 
 server_socket.listen()
 # server čeké na nové připojení
 
 sockets_list = [server_socket]
-#???????????? no.2
 
 clients = {}
 
@@ -43,18 +42,16 @@ logging.info('Listening for connections on ' + str(IP) + ":" + str(PORT))
 def receive_message(client_socket):
     while True:
         try:
-            message_header = client_socket.recv(HEADER_LENGTH)
-            # ???????????? no.3
+            message_header = client_socket.recv(1024)
 
             # Pokud nepřišla zpráva:
             if not len(message_header):
                 return False
 
             message_length = int(message_header.decode('utf-8').strip())
-            # ???????????? no.4
 
             return {'header': message_header, 'data': client_socket.recv(message_length)}
-            # ???????????? Vrátí zprávu? no.4.5
+            # Vrátí zprávu
         except:
             # Pokud skončilo připojení. . . Logging?
             return False
@@ -62,7 +59,6 @@ def receive_message(client_socket):
 def server():
     while True:
         read_sockets, _, exception_sockets = select.select(sockets_list, [], sockets_list)
-        # ???????????? no.5
 
         # Prohlíží příchozí připojení
         for notified_socket in read_sockets:
@@ -80,11 +76,12 @@ def server():
                     continue
 
                 sockets_list.append(client_socket)
-                # ???????????? no.7
+
                 clients[client_socket] = user
 
-                logging.info('Accepted new connection from {}:{}, username: {}'.format(*client_address, user['data'].decode('utf-8')))
+                logging.info('Accepted new connection from ' + str(format(client_address) + 'username: ' + str(user['data'].decode('utf-8'))))
                 # -----------------------------------------------------------Předělat na logging
+
             # Pokud posílá zprávu:
             else:
                 # Zpráva
@@ -92,7 +89,7 @@ def server():
 
                 # Pokud se odpojí:
                 if message is False:
-                    logging.info('Closed connection from: {}'.format(clients[notified_socket]['data'].decode('utf-8')))
+                    logging.info('Closed connection from: ' + str(format(clients[notified_socket]['data'].decode('utf-8'))))
                     # -----------------------------------------------------------Předělat na logging
                     # Vymaž z listu připojených uživatelů
                     sockets_list.remove(notified_socket)
@@ -102,7 +99,7 @@ def server():
                 # Zjisti kdo píše zprávu:
                 user = clients[notified_socket]
 
-                logging.info(f'Received message from {user["data"].decode("utf-8")}: {message["data"].decode("utf-8")}')
+                logging.info('Received message from ' + str(user["data"].decode("utf-8")) + ": " + str(message["data"].decode("utf-8")))
                 # -----------------------------------------------------------Předělat na logging
                 # Odešli zprávu všem připojeným:
                 for client_socket in clients:
@@ -112,13 +109,3 @@ def server():
 
 x2 = threading.Thread(target=server)
 x2.start()
-"""
-    #Příprava na pokročilejí logging
-    for notified_socket in exception_sockets:
-
-        # Remove from list for socket.socket()
-        sockets_list.remove(notified_socket)
-
-        # Remove from our list of users
-        del clients[notified_socket]
-"""

@@ -37,6 +37,14 @@ def get_message():
             print('ERROR: '.format(str(e)))
             sys.exit()
 
+def destroy():
+    global name
+
+    testname = str(name.get())
+
+    if testname.isalpha():
+        window.destroy()
+
 
 IP = "127.0.0.1"
 PORT = 1234
@@ -48,7 +56,7 @@ window.configure(bg="black")
 
 
 label1 = tk.Label(
-    text="Zadejte své jméno",
+    text="Zadejte jméno pouze z písmen (žádné znaky ani čísla)",
     background="black",
     foreground="#7bff00",
     width=63,
@@ -77,7 +85,7 @@ button1 = tk.Button(
     foreground="black",
     width=10,
     height=2,
-    command=window.destroy,
+    command=destroy,
 )
 button1.grid(row=1, column=4)
 

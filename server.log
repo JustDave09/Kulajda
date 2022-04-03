@@ -6,3 +6,26 @@
 [2022-04-03 20:39:41,364] INFO MainThread root: Listening for connections on 127.0.0.1:1234
 [2022-04-03 20:39:46,421] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 65226)username: Dave
 [2022-04-03 20:39:51,781] INFO Thread-1 root: Received message fromDave:AHOOOOOOOOOJ
+[2022-04-03 20:43:40,152] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:43:44,274] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 61773)username: 
+[2022-04-03 20:43:53,292] INFO Thread-1 root: Received message from:AHOOOOJ
+[2022-04-03 20:45:26,323] INFO Thread-1 root: Closed connection from: 
+[2022-04-03 20:46:24,341] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 61782)username: Dave
+[2022-04-03 20:46:31,166] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:46:34,388] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 61783)username: 
+[2022-04-03 20:46:37,397] INFO Thread-1 root: Received message from:Dave
+[2022-04-03 20:49:05,959] INFO Thread-1 root: Closed connection from: 
+[2022-04-03 20:54:47,953] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55229)username: Dave
+[2022-04-03 20:54:54,852] INFO Thread-1 root: Received message fromDave:Dave
+[2022-04-03 20:55:29,417] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:55:46,465] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55242)username: Dave
+[2022-04-03 20:55:58,369] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:56:07,880] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55246)username: Dave
+[2022-04-03 20:56:17,965] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:56:25,907] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55255)username: Dave
+[2022-04-03 20:57:22,089] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:57:31,103] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55263)username: Dave
+[2022-04-03 20:57:49,033] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:57:52,948] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55264)username: Dave
+[2022-04-03 20:57:59,215] INFO Thread-1 root: Closed connection from: Dave
+[2022-04-03 20:58:12,720] INFO Thread-1 root: Accepted new connection from('127.0.0.1', 55265)username: Dave

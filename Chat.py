@@ -20,8 +20,7 @@ def get_message():
             while True:
                 username_header = client_socket.recv(1024)
                 if not len(username_header):
-                    print('Connection closed by the server')
-                    # --------------------------------------------- Předělat na logging
+                    print('Připojení ukončeno')
                     sys.exit()
 
                 username_length = int(username_header.decode('utf-8').strip())
@@ -34,13 +33,8 @@ def get_message():
                 #--------------------------------------------- Vypiš zprávy
                 label1.insert(0, str(username) + ">" + str(message))
 
-
-        except IOError as e:
-            # --------------------------------------------- Předělat na logging -------------------------------------------
-            #print("Vyskytl se error")
-            rip = True
         except Exception as e:
-            print('Reading error: '.format(str(e)))
+            print('ERROR: '.format(str(e)))
             sys.exit()
 
 
@@ -92,7 +86,6 @@ window.mainloop()
 
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#???????????? no.1
 
 client_socket.connect((IP, PORT))
 # Připojit na daný soket

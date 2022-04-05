@@ -14,7 +14,7 @@ logging.info('Starting server "The_Best_chatting_service_2022.py"')
 logging.info('-----------------------------------------------------------------')
 
 IP = "127.0.0.1"
-PORT = 1234
+PORT = 25565
 
 logging.info('Creating server at ' + str(IP) + " on port" + str(PORT))
 

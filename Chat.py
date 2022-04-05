@@ -47,7 +47,7 @@ def destroy():
 
 
 IP = "127.0.0.1"
-PORT = 1234
+PORT = 25565
 
 window = tk.Tk()
 window.geometry("580x220")

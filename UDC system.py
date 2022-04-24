@@ -13,7 +13,7 @@ def mainWindow():
 
     data = cur.execute("SELECT * FROM persons;")
 
-    x = 0
+    x = 6
     for row in data:
         exec = partial(newwin, row)
         label1 = tk.Button(
@@ -28,7 +28,101 @@ def mainWindow():
         label1.grid(row=x, column=1, columnspan=4, sticky="W")
         x += 1
 
-    # cur.execute("DROP TABLE persons")
+    label = tk.Label(
+        window,
+        anchor="w",
+        background="white",
+        foreground="black",
+        width=20,
+        font=(20),
+        text="Rodné číslo",
+    )
+    label.grid(column=1, columnspan=1, row=0, sticky="W")
+
+    label = tk.Label(
+        window,
+        anchor="w",
+        background="white",
+        foreground="black",
+        width=20,
+        font=(20),
+        text="Jméno",
+    )
+    label.grid(column=1, columnspan=1, row=1, sticky="W")
+
+    label = tk.Label(
+        window,
+        anchor="w",
+        background="white",
+        foreground="black",
+        width=20,
+        font=(20),
+        text="Příjmení",
+    )
+    label.grid(column=1, columnspan=1, row=2, sticky="W")
+
+    label = tk.Label(
+        window,
+        anchor="w",
+        background="white",
+        foreground="black",
+        width=20,
+        font=(20),
+        text="Email",
+    )
+    label.grid(column=1, columnspan=1, row=3, sticky="W")
+
+    label = tk.Label(
+        window,
+        anchor="w",
+        background="white",
+        foreground="black",
+        width=20,
+        font=(20),
+        text="Telefon",
+    )
+    label.grid(column=1, columnspan=1, row=4, sticky="W")
+
+    entry0 = tk.StringVar()
+    entry0 = tk.Entry(
+        window,
+    )
+    entry0.grid(row=0, column=2, columnspan=1)
+
+    entry1 = tk.StringVar()
+    entry1 = tk.Entry(
+        window,
+    )
+    entry1.grid(row=1, column=2, columnspan=1)
+
+    entry2 = tk.StringVar()
+    entry2 = tk.Entry(
+        window,
+    )
+    entry2.grid(row=2, column=2, columnspan=1)
+
+    entry3 = tk.StringVar()
+    entry3 = tk.Entry(
+        window,
+    )
+    entry3.grid(row=3, column=2, columnspan=1)
+
+
+    entry4 = tk.StringVar()
+    entry4 = tk.Entry(
+        window,
+    )
+    entry4.grid(row=4, column=2, columnspan=1)
+
+    createExec = partial(create, entry0, entry1, entry2, entry3, entry4, window)
+    createButton = tk.Button(
+        window,
+        text="Přidat",
+        command=createExec,
+        width=40,
+    )
+    createButton.grid(row=5, column=1, columnspan=2)
+
     window.mainloop()
 
     for row in data:
@@ -37,37 +131,45 @@ def mainWindow():
     con.commit()
     con.close()
 
-def create(data):
-    cur.execute(
-        "INSERT INTO persons "
-        "(RodneCislo, Jmeno, Prijmeni, Narozeni, Mesto) "
-        "VALUES (data[1], data[2], data[3], data[4], data[5]);"
-    "")
-    con.commit()
+    return entry0, entry1, entry2, entry3, entry4, window
 
-def delete(data):
-    cur.execute(
-        "UPDATE persons "
-        "SET (RodneCislo, Jmeno, Prijmeni, Narozeni, Mesto)"
-        "VALUES (data[1], data[2], data[3], data[4], data[5])"
-        "WHERE RodneCislo = data[1];"
-    "")
-    con.commit()
-
-def update(data, entry1, entry2, entry3, entry4):
+def create(entry0, entry1, entry2, entry3, entry4, window):
+    entry0 = entry0.get()
     entry1 = entry1.get()
     entry2 = entry2.get()
     entry3 = entry3.get()
     entry4 = entry4.get()
 
-    data.append(entry1)
-    data.append(entry2)
-    data.append(entry3)
-    data.append(entry4)
-    print(data)
+    cur.execute(
+        f"INSERT INTO persons "
+        "(RodneCislo, Jmeno, Prijmeni, Email, Telefon) "
+        "VALUES (" + str(entry0) + ", '" + str(entry1) + "', '" + str(entry2) + "', "
+        "'" + str(entry3) + "', '" + str(entry4) + "');"
+    "")
+    con.commit()
 
-    execString = "UPDATE persons SET Jmeno ='" + str(data[1]) + "', Prijmeni = '" + str(data[2]) + "', " \
-                "Narozeni = '" + str(data[3]) + "', Mesto = '" + str(data[4]) + "' " \
+    window.destroy()
+    mainWindow()
+
+def delete(data, windowUP):
+    print("Tried to delete ID" + str(data[0]))
+    cur.execute(
+        f"DELETE FROM persons "
+        "WHERE RodneCislo = " + str(data[0]) + ";"
+    "")
+    con.commit()
+    windowUP.destroy()
+    window.destroy()
+    mainWindow()
+
+def update(data, entry1, entry2, entry3, entry4, windowUP):
+    entry1 = entry1.get()
+    entry2 = entry2.get()
+    entry3 = entry3.get()
+    entry4 = entry4.get()
+
+    execString = "UPDATE persons SET Jmeno ='" + str(entry1) + "', Prijmeni = '" + str(entry2) + "', " \
+                "Email = '" + str(entry3) + "', Telefon = '" + str(entry4) + "' " \
                 "WHERE RodneCislo = " + str(data[0]) + ";"
     print(execString)
     cur.execute(execString)
@@ -78,12 +180,12 @@ def update(data, entry1, entry2, entry3, entry4):
     mainWindow()
 
 def newwin(data):
-    global windowUP
+    #global windowUP
 
     data0, data1, data2, data3, data4 = data
 
     windowUP = tk.Tk()
-    windowUP.geometry("580x220")
+    windowUP.geometry("580x80")
     windowUP.title("Update Me")
     labelUP = tk.Label(
         windowUP,
@@ -132,7 +234,7 @@ def newwin(data):
     data.append(data0)
     print(data)
 
-    delExec = partial(delete, data)
+    delExec = partial(delete, data, windowUP)
     delButton = tk.Button(
         windowUP,
         text="Smazat",
@@ -141,7 +243,7 @@ def newwin(data):
     )
     delButton.grid(row=3, column=1, columnspan=2)
 
-    upExec = partial(update, data, entry1, entry2, entry3, entry4)
+    upExec = partial(update, data, entry1, entry2, entry3, entry4, windowUP)
     upButton = tk.Button(
         windowUP,
         text="Upravit",
@@ -151,7 +253,7 @@ def newwin(data):
     upButton.grid(row=3, column=3, columnspan=2)
 
     windowUP.mainloop()
-    return entry1, entry2, entry3, entry4
+    return entry1, entry2, entry3, entry4, windowUP
 
 
 con = sqlite3.connect("example.db")
@@ -164,8 +266,8 @@ cur.execute("CREATE TABLE IF NOT EXISTS persons ("
     "RodneCislo int primary key,"
     "Jmeno varchar(255),"
     "Prijmeni varchar(255),"
-    "Narozeni varchar(255),"
-    "Mesto varchar(255)"
+    "Email varchar(255),"
+    "Telefon varchar(255)"
 ");")
 
 mainWindow()

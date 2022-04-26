@@ -367,12 +367,12 @@ con = sqlite3.connect("example.db")
 cur = con.cursor()
 # jakou DB používáme
 
-cur.execute("CREATE TABLE IF NOT EXISTS persons ("
-            "RodneCislo int primary key,"
-            "Jmeno varchar(255),"
-            "Prijmeni varchar(255),"
-            "Email varchar(255),"
-            "Telefon varchar(255)"
-            ");")
+cur.execute("""CREATE TABLE IF NOT EXISTS persons (
+            RodneCislo int primary key,
+            Jmeno varchar(255),
+            Prijmeni varchar(255),
+            Email varchar(255),
+            Telefon varchar(255)
+            );""")
 
 mainWindow()

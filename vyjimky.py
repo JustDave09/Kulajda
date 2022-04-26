@@ -1,3 +1,5 @@
+"""
+
 try:
     vstup = int(input())
     a = 3 + vstup
@@ -8,3 +10,7 @@ except Exception as e:
     print(e)
 else:
     print("Všechno OK, pokračuju dale")
+
+"""
+str = "123456/7890"
+print(str[2:4])

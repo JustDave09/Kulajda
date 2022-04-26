@@ -121,7 +121,7 @@ def mainWindow():
         text="Přidat",
         command=checkCascadeExec,
         width=40,
-    )
+)
     createButton.grid(row=5, column=1, columnspan=2)
 
     window.mainloop()
@@ -136,12 +136,10 @@ def mainWindow():
 
 
 def newwin(data, window):
-    # global windowUP
-
     data0, data1, data2, data3, data4 = data
 
     windowUP = tk.Tk()
-    windowUP.geometry("580x80")
+    windowUP.geometry("780x80")
     windowUP.title("Update Me")
     labelUP = tk.Label(
         windowUP,
@@ -223,6 +221,12 @@ def checkCascade(window, dataInput0, label0, dataInput1, label1, dataInput2, lab
     email = emailCheck(dataInput3, label3)
     phone = phoneCheck(dataInput4, label4)
 
+    print(birthID)
+    print(name)
+    print(surname)
+    print(email)
+    print(phone)
+
     if name and surname and email and phone and birthID:
         create(dataInput0, dataInput1, dataInput2, dataInput3, dataInput4, window)
         window.destroy()
@@ -273,24 +277,29 @@ def birthIDCheck(dataInput, entryBox):
             left = int(d[0]) + int(d[2]) + int(d[4]) + int(d[7]) + int(d[9])
             right = int(d[1]) + int(d[3]) + int(d[5]) + int(d[8]) + + int(d[10])
 
-            if left - right == 11:
+            valid = [0, 11, -11]
+            if left - right in valid and int(d[2:4]) <= 82:
                 try:
                     entryBox.config(fg="black")
                     return True
                 except:
                     return True
-
+            else:
+                print(int(d[2:4]))
+                print(left)
+                print(right)
+                print("Nefunguje 2")
     else:
+        print("Nefunguje 1")
         try:
             entryBox.config(fg="red")
         except:
             return False
 
 
-
 def create(entry0, entry1, entry2, entry3, entry4, window):
 
-    checkCascade(window, entry0, entry0, entry1, entry1, entry2, entry2, entry3, entry3, entry4, entry4)
+    #checkCascade(window, entry0, entry0, entry1, entry1, entry2, entry2, entry3, entry3, entry4, entry4)
 
     entry0 = entry0.get()
     entry1 = entry1.get()
@@ -303,9 +312,8 @@ def create(entry0, entry1, entry2, entry3, entry4, window):
         f"INSERT INTO persons "
         "(RodneCislo, Jmeno, Prijmeni, Email, Telefon) "
         "VALUES (" + str(entry0) + ", '" + str(entry1) + "', '" + str(entry2) + "', "
-                                                                                "'" + str(entry3) + "', '" + str(
-            entry4) + "');"
-                      "")
+        "'" + str(entry3) + "', '" + str(
+        entry4) + "');""")
     con.commit()
 
     window.destroy()

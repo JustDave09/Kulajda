@@ -376,3 +376,4 @@ cur.execute("""CREATE TABLE IF NOT EXISTS persons (
             );""")
 
 mainWindow()
+

@@ -1,3 +1,8 @@
+"""
+-----------------------------
+někdy kdysi dávno
+-----------------------------
+
 haha nefunguje ti kod
 :C
 dyk 8----->
@@ -32,3 +37,12 @@ forblob
 blob
 Reply to -> blob.: To jméno jsem neslyšel roky
 diryba dela b
+
+-----------------------------
+út 13:49 10.5. 2022
+-----------------------------
+
+
+
+
+"""

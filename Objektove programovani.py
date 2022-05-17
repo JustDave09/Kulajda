@@ -1,6 +1,18 @@
-#UML ---- CLASS DIAGRAM
+# UML ----- CLASS DIAGRAM
+
+
+# --- Objekt ---
+# USKUPENÍ DAT A PROCEDUR KTERÝ UMÍ
+
+# má parametry -> Atributy -> Data co v sobě uchovává
+# Metoda -> Popis chování objektu (rozjeď se)
+# jakykoliv objekt irl
+
 
 # --- Třídy ---
+# TŘÍDA JE PŘEDPIS PRO TVORBU REPREZENTANTŮ OBJEKTŮ
+
+# popsat objekt je náročné -> proto tvoříme třídy podle kterých se určují objektu parametry
 
 # názvy tříd začínají velkým písmenem
 # u atributů je data type
@@ -8,14 +20,47 @@
 
 # Každá třída musí mít komentář co v ní je a co representuje
 
-# --- Vazby ---
 
+# --- Instance ---
+# JEDEN ZÁZNAM OBJEKTU SPECIFIKOVÁN VE TŘÍDĚ
+
+
+# --- Vazby ---
 # kardinality ukazují kolik jiných tříd má třída
 
 # existují dědící vazby (`profesor` a `student` mají atributy "člověka")
 
 
 # (o .o )
+
+
+# ROZŠÍŘENÉ ---------------------------------------------------------
+
+# --- Abstrakce ---
+# hledání toho co mají objekty společného Kočka Pes -> Zvíře
+# Klokan, Koala -> Vačnatci (Detailnejší než Zvíře)
+# nutno abstrahovat do nejnižší podoby kam můžu objekt zařadit
+
+
+# --- Dědění ---
+# Rodič - Nadřazená třída (A)
+# Dítě - Třída která dědí (B, C) -> Mají vše stejné co má A
+# Dítě dítěte - Třída co dědí děděnou třídu (F) -> Má vše co má A a co má C
+
+
+# --- Abstraktní třída ---
+# Třída tvořená pouze k tomu, aby se z ní dědilo (žádná instance této třídy neexistuje, pouze "děti")
+
+
+# --- Zapouzdření ---
+# Snažíte se zapouzdřit program tak aby nebylo vidět dovnitř
+# černá skříňka -> Pouze vstup a výstup, vnitřek není viditelný
+# Aby jsme nevěděli, jak se to stalo
+
+# Privátní metoda
+
+
+
 
 class Person:
     """

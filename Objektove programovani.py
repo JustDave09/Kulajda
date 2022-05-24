@@ -59,6 +59,15 @@
 
 # Privátní metoda
 
+# ---------------------
+# --- Polymorfismus ---
+#    (mnohotvárnost)
+
+# Metoda nebo funkce co mění své chování podle vstupu,
+# nebo naopak procesuje stejné výstupy dat i s rozdílnými vstupy
+
+#
+
 
 
 

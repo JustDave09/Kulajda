@@ -31,6 +31,9 @@
 # existují dědící vazby (`profesor` a `student` mají atributy "člověka")
 
 
+# --- Metody ---
+# Funkce v oop
+
 # (o .o )
 
 
